@@ -117,7 +117,6 @@ function buscarPorRareza(objetos, rareza) {
     return [...objetos];
   }
 
-
   return objetos.filter(o => o.rareza === rareza);
 }
 
@@ -204,7 +203,8 @@ function comprarProducto(producto) {
     renderizarJugador();
     mostrarNotificacion(`¡Has comprado ${producto.nombre} exitosamente!`, true);
   } else {
-    mostrarNotificacion(`No tienes suficiente oro para comprar ${producto.nombre}.`, false);
+    let precioFaltante = producto.precio - jugador.oroCentimos
+    mostrarNotificacion(`No tienes suficiente oro para comprar ${producto.nombre}. Falta ${precioFaltante}`, false);
   }
 }
 
